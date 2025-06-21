@@ -3,24 +3,26 @@ name: 🚀 Node.js CI with Docker
 on:
   push:
     branches:
-    - main
+      - main
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: test echo
-      run: echo "Hello, World!"
+      - name: test echo
+        run: echo "Hello, World!"
 
-    - name: print working directory
-      run: pwd
+      - name: print working directory (before checkout)
+        run: pwd && ls
 
-    - name: Checkout code
-      uses: actions/checkout@v4
-    
-    - name: print working directory
-      run: pwd
-    
+      - name: Checkout code
+        uses: actions/checkout@v4
 
+      - name: list files (after checkout)
+        run: |
+          echo "✅ Code after checkout:"
+          ls -la
 
+      - name: print working directory (after checkout)
+        run: pwd && ls
