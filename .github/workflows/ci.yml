@@ -22,7 +22,7 @@ jobs:
       - name: list files (after checkout)
         run: |
           echo "✅ Code after checkout:"
-          ls -la
+          ls -l 
 
       - name: print working directory (after checkout)
         run: pwd && ls
