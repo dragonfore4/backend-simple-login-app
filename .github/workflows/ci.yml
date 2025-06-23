@@ -33,5 +33,5 @@ jobs:
         password : ${{ secrets.DOCKER_PASSWORD}}
 
     - name: Push Docker image
-      run: docker push dragonfore4/simple-login-express:v${{ github.run_number}}
+      run: docker push dragonfore4/backend-simple-login-express:v${{ github.run_number}}
      
