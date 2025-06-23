@@ -24,7 +24,7 @@ jobs:
       run: npm install
     
     - name: Build Docker image
-      run: docker build -t dragonfore4/backend-simple-login-express:v${{ github.run_number}} .
+      run: docker build -t dragonfore4/backend-simple-login-image:v${{ github.run_number}} .
     
     - name: Log in to Docker Hub
       uses: docker/login-action@v3
@@ -33,5 +33,5 @@ jobs:
         password : ${{ secrets.DOCKER_PASSWORD}}
 
     - name: Push Docker image
-      run: docker push dragonfore4/backend-simple-login-express:v${{ github.run_number}}
+      run: docker push dragonfore4/backend-simple-login-image:v${{ github.run_number}}
      
