@@ -1,5 +1,7 @@
 FROM node:24-alpine
 
+RUN apk add --no-cache tini
+
 WORKDIR /app
 
 COPY package.json package-lock.json ./
@@ -15,6 +17,7 @@ RUN npm install --production
 COPY . .
 
 EXPOSE 8080
+ENTRYPOINT ["/sbin/tini", "--"]
 CMD [ "node", "server.js" ]
 
 
